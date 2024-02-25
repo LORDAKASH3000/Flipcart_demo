@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flipkart</title>
+        <meta name="author" content="chakra sayan roy">
+        <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Materialize CSS stylesheet -->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/materialize.min.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="headc">
+                <div class="headc2">
+                    <a class="inav" href="icons/index.html">
+                        <img width="75px" height="21px" src="icons/flipkart.png" alt="Flipkart">
+                    </a>
+                    <a class="ndva" href="icons/index.html">
+                        Explore
+                        <span class="yellow-text" style="font-weight:600;">Plus</span>
+                        <img src="icons/plus.png" width="10px" alt="Plus">
+                    </a>
+                </div>
+                <div class="search_d">
+                    <form class="sf" action="/Search" method="Get">
+                        <input class="nin" type="text" placeholder="Search for products, brands and more">
+                        <button class="transparent hbt" type="submit">
+                            <div class="bt">
+                                <img class="imbt" src="icons/seic.svg" alt="search">
+                            </div> 
+                        </button>
+                    </form>
+                </div>
+                <div class="bd">
+                    <div class="login_b">
+                        <button id="login_b" class="btn2 waves-effect waves-light blue-text white">
+                            Login
+                        </button>
+                    </div>
+                    <div class="drop">
+                        <div class="c1">
+                            <div class="arrow">
+                                <img src="icons/arrow_up_svg.svg" style="background-color:#00000000;" alt="">
+                            </div>
+                        </div>
+                        <div class="c2">
+                            <div>
+                                <div>
+                                    <div class="menu">
+                                        <div>
+                                            <a href="#">Home</a>
+                                        </div>
+                                        <div>
+                                            <a href="#">Links</a>
+                                        </div>
+                                        <div>
+                                            <a href="#">About</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding:11px 15px 0 20px">
+                    <button id="more_b" class="btn2A transparent white-text" style="display: flex; flex-direction: row;">
+                        <i class="material-icons white-text" style="font-size:24px;line-height: 19px;">more_vert</i>
+                        More
+                    </button>
+                </div>
+                <div style="padding:11px 20px 0 15px">
+                    <button id="cart_b" class=" btn2A N/A transparent white-text" style="display: flex; flex-direction: row;">
+                        <i class="material-icons white-text" style="font-size:20px;line-height: 19px;margin-right:6px">shopping_cart</i>
+                        Cart
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <img src="https://source.unsplash.com/728x90/?random" alt="Banner Ad" class="responsive-img">
+        </div>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://source.unsplash.com/300x400/?cloths">
+                            <span class="card-title">Cloths</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Description of Product 1.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://source.unsplash.com/300x400/?watches">
+                            <span class="card-title">Watches</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Description of Product 2.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://source.unsplash.com/300x400/?shoes">
+                            <span class="card-title">Shoes</span>
+                        </div>
+                        <div class="card-content">
+                            <p>Description of Product 3.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <footer class="page-footer"style="background-color: #2874f0">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">About Us</h5>
+                        <p class="grey-text text-lighten-4">Description of the company.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Links</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#">Home</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#">Products</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#">Cart</a></li>
+                            <span>&COPY;2022-2032</span>
+                            <span>Flipkart.com</span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <script>
+        const element = document.querySelector(".btn2");
+        const dd = document.querySelector(".drop");
+        element.addEventListener("mouseover",()=>{
+            dd.classList.add("hover");
+        })
+        dd.addEventListener("mouseover",()=>{
+            dd.classList.add("hover");
+        })
+        element.addEventListener("mouseout",()=>{
+            dd.classList.remove("hover");
+        })
+        dd.addEventListener("mouseout",()=>{
+            dd.classList.remove("hover");
+        })
+    </script>
+</html>

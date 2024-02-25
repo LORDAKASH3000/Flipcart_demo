@@ -1,0 +1,259 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.menu{
+    background-color: #2874f0;
+    display: flex;
+    /* width: 100%; */
+    height: 56px;
+}
+.fullmenu{
+    display: flex;
+    margin: auto;
+    /* width: 1248px; */
+    width:100%;
+    height: 56px;
+}
+.container{
+    display: flex;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.login,.profile_options,.shopcart{
+    margin-left: 36px;
+}
+
+/* Logo & Plus */
+.Logo_plus{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+#sitelogo{
+    display: block;
+    width: 75px; 
+    height: 21px;
+}
+.fullplus{
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 11px;
+    font-style: italic;
+    margin-top: -1px;
+}
+.fullplus:hover{
+    text-decoration:underline;
+}
+.plus{
+    color: #ffe500;
+    font-weight:500;
+}
+.fullplus>img{
+    width: 11px;
+    height: 11px;
+}
+
+/* Search */
+.formsearch{
+    display:flex;
+    min-width: 425px;
+    margin: 0 0 0 12px;
+    align-items: center;
+}
+.form{
+    display: inline-block;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.23);
+    width: 100%;
+    height: 36px;
+    max-width: 564px;
+    position: relative;
+    border-radius: 8px;
+}
+.fullform{
+    display: flex;
+    justify-content: space-between;
+    flex: auto;
+    border-radius: 8px;
+    width: 100%;
+}
+.forminput{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.input{
+    padding: 0 16px;
+    border-radius: 7px 0 0 7px;
+    border: 0;
+    outline: 0 none;
+    font-size: 14px;
+    height: 36px;
+    width: 100%;
+}
+.formbutton{
+    border: 1px solid white;
+    background-color: white;
+    height: 36px;
+    width: 44px;
+    border-radius: 0 7px 7px 0;
+    cursor: pointer;
+    padding: 4px 12px 0 8px;
+}
+
+/* Login Button */
+.login{
+    display: flex;
+    /* display: none; */
+    flex-direction: column;
+    cursor: pointer;
+}
+.login>a{
+    z-index: 1;
+}
+.loginbutton{
+    min-width: 112px;
+    min-height: 33px;
+    border-radius: 7px;
+    border: none;
+    color: #2874f0;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: Roboto,Arial,sans-serif;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.hoveroptions{
+    display:flex;
+    justify-content: center;
+    visibility: collapse;
+    /* display: none; */
+}
+.arrow{
+    position:absolute;
+    top: 36px;
+    width: 112px;
+    display: flex;
+    justify-content: center;
+    transition: .5s ease-in;
+}
+.arrow>img{
+    width:35px;
+    display:block;
+}
+.dropdown{
+    position: absolute;
+    top: 56px;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,.2);
+    border-radius: 9px;
+    transition: .5s ease-in;
+}
+.option_container{
+    display:flex;
+    flex-direction: column;
+}
+.option_container>a{
+    width: 188px;
+    text-decoration: none;
+    border-radius: 9px;
+}
+.option_container>a:hover{
+    background-color: #ebedf1;
+}
+.options{
+    margin: 0 20px;
+    line-height: 3;
+    border-radius: 9px;
+}
+.hover{
+    display:flex;
+    visibility: visible;
+}
+
+/* chips */
+.profile_options{
+    cursor: pointer;
+    display: none;
+}
+.selfinfo{
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.selfinfo::before{
+    content: '';
+    width: 0;
+    height:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background-image: linear-gradient(to bottom,#6acff4,#fafafa 100%);
+    /* background-image: linear-gradient(to bottom,#aff6b5,#f8f4a6 100%); */
+    display: block;
+    transition: .5s ease;
+    z-index: -1;
+}
+.profile_options:hover>.selfinfo::before{
+    width:100%;
+}
+.selfinfo{
+    /* display:none; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 40px;
+    height: 33px;
+}
+.outer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    margin-right: 2px;
+    margin-left: 4px;
+}
+.inner_img{
+    height: 29px;
+    width: 29px;
+}
+.outer>p{
+    margin: 5px;
+    margin-right: 0px;
+}
+.material-symbols-outlined {
+    margin-right: 8px;
+    color: rgb(152, 144, 144);
+    font-weight: 100;
+    transition: .5s ease;
+}
+#arrow2{
+    width: 186px;
+    justify-content: end;
+}
+#arrow2>img{
+    margin-right: 3px;
+}
+
+/*Cart*/
+.shopcart{
+    display:none;
+    align-items: center;
+    justify-content: flex-end;
+}
+.cart>a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: Roboto,Arial,sans-serif;
+}

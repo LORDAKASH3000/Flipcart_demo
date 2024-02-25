@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="chakra Sayan Roy">
+  <title>Sign in</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/login.css" media="screen,projection" />
+  <script src="js/materialize.min.js"></script>
+</head>
+
+<body background="https://source.unsplash.com/1920x1080/?random" style="background-attachment:fixed">
+  <div class="container">
+    <div class="row">
+      <div class="col m6 offset-m3">
+        <div class="card center">
+          <div class="card-content">
+            <h3 id="signin" class="green-text">Login</h3>
+            <h3 id="signingin" style="display: none;" class="green-text">Loging in</h3>
+            <p id="unsignin" style="display: none;" class="red-text"></p>
+            <form method="POST" action="Signin" id="myform">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input name="User_Email" id="email" type="email" class="validate">
+                <label class="active" for="email">Registered Email</label>
+              </div>
+              <div class="input-field col s12">
+                <i class="material-icons prefix">password</i>
+                <input name="User_Password" id="password" type="password" class="validate">
+                <label class="active" for="password">Password</label>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit">
+                <div id="submit_btn">
+                  Submit
+                  <i class="material-icons right">send</i>
+                </div>
+                <div style="display: none;" id="loader">
+                  <div class="preloader-wrapper small active">
+                    <div class="spinner-layer spinner-blue">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="gap-patch">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-green">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="gap-patch">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-yellow">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="gap-patch">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+
+                    <div class="spinner-layer spinner-red">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="gap-patch">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function () {
+    console.log("Ready");
+    $("#myform").on("submit", function (event) {
+      event.preventDefault();
+      $("#signin").hide();
+      $("#submit_btn").hide();
+      $("#signingin").show();
+      $("#loader").show();
+      var f = $(this).serialize();
+      $.ajax({
+        url: "Signin",
+        data: f,
+        type: "POST",
+        success: function (data, textStatus, jqXHR) {
+          console.log("Success!");
+          console.log(data);
+          window.location.href = "index.jsp";
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.log("Error!");
+          $("#signin").show();
+          $("#unsignin").html(errorThrown);
+          $("#unsignin").show();
+          $("#submit_btn").show();
+          $("#signingin").hide();
+          $("#loader").hide();
+        }
+      })
+    })
+  });
+</script>
+
+</html>

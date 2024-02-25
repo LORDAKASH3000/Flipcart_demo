@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    .parent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 18em;
+        height:6em;
+        border: 2px solid black;
+    }
+    .parent:hover>.btn::before{
+        width: 100%;
+    }
+    .btn{
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 9em;
+        height: 3em;
+        border-radius: 30em;
+        font-size: 15px;
+        position: relative;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 6px 6px 12px #c5c5c5,-6px -6px 12px #ffffff;
+    }
+    .btn::before{
+        content: '';
+        width: 0;
+        height:100%;
+        position: absolute;
+        top:0;
+        left:0;
+        background-image: linear-gradient(to bottom,#0fd850,#f9f047 100%);
+        display: block;
+        transition: width .5s ease;
+        z-index: -1;
+    }
+    .btn:hover{
+        color: white;
+    }
+    .p{
+        margin: 0;
+    }
+</style>
+
+<body>
+    <div class="parent">
+        <div class="btn button">
+            <p class="p">Hover on</p>
+        </div>
+    </div>
+</body>
+</html>

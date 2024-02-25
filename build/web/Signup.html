@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+
+<head>
+  <title>Sign Up</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="chakra Sayan Roy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="style.css" media="screen,projection" />
+  <script src="js/materialize.min.js"></script>
+</head>
+
+<body background="https://source.unsplash.com/1920x1080/?random" style="background-attachment:fixed">
+  <div class="container" style="margin-top:235px">
+    <div class="row">
+      <div class="col m6 offset-m3">
+        <div class="card center" style="border-radius:20px;">
+          <div class="card-content">
+            <h3 id="signup" class="center green-text" style="margin-bottom:30px;margin-top:10px;">Sign Up</h3>
+            <h5 id="signingup" class="center green-text" style="margin-bottom:30px;margin-top:10px;display:none">Signing
+              up</h5>
+            <h5 id="success_msg" class="center green-text" style="margin-bottom:30px;margin-top:10px;display:none">Sign
+              Up Successfull</h5>
+            <h5 id="unsuccess_msg" class="center green-text" style="margin-bottom:30px;margin-top:10px;display:none">
+              Sign Up Unsuccessfull</h5>
+            <form method="post" action="Signup" id="myform">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input class="validate styles" name="User-Name" id="name" type="text">
+                <label class="active" for="name">Full-Name</label>
+              </div>
+              <div class="input-field col s12">
+                <i class="material-icons prefix">password</i>
+                <input name="User-Password" id="password" type="password" class="validate">
+                <label class="active" for="password">Password</label>
+              </div>
+              <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input name="User-Email" id="email" type="email" class="validate">
+                <label class="active" for="email">Email</label>
+                <span id="helper" class="helper-text red" style="display:none;text-align: left;">Email already exist</span>
+              </div>
+              <button class="btn waves-effect waves-light" style="border-radius:10px; height:50px" type="submit">
+                Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
+            <div style="display:none" id="reload_b">
+              <a href="index.jsp">
+                <button class="btn waves-effect waves-light" style="border-radius:10px; height:50px">Go back</button>
+              </a>
+            </div>
+
+            <div style="margin-top:25px; display:none" id="loader">
+              <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+              <h5>Please Wait...</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function () {
+    console.log("Ready");
+    $("#myform").on("submit", function (event) {
+      event.preventDefault();
+      var f = $(this).serialize();
+      $("#signup").hide();
+      $("#unsuccess_msg").hide();
+      $("#myform").hide();
+      $("#signingup").show();
+      $("#loader").show();
+      $.ajax({
+        url: "Signup",
+        data: f,
+        type: "POST",
+        success: function (data, textStatus, jqXHR) {
+          console.log("Success!");
+          $("#signingup").hide();
+          $("#loader").hide();
+          $("#success_msg").show();
+          $("#reload_b").show();
+          $("#helper").hide();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.log("Error!");
+          $("#signingup").hide();
+          $("#loader").hide();
+          $("#myform").show();
+          $("#unsuccess_msg").show();
+          $("#helper").show();
+        }
+      })
+    })
+  });
+</script>
+
+</html>
+<!-- document.addEventListener("DOMContentLoaded", function () {
+    console.log("Ready");
+}); -->
